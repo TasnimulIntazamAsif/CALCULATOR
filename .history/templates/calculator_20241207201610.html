@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASIF CALCI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ASIF CALCI</h1>
+        <div class="calculator">
+            <form method="POST">
+                <input type="number" name="num1" placeholder="Enter first number" required step="any">
+                <input type="number" name="num2" placeholder="Enter second number" required step="any">
+                
+                <select name="operation" required>
+                    <option value="add">Add (+)</option>
+                    <option value="subtract">Subtract (-)</option>
+                    <option value="multiply">Multiply (×)</option>
+                    <option value="divide">Divide (÷)</option>
+                </select>
+                
+                <button type="submit">Calculate</button>
+            </form>
+            
+            {% if result != '' %}
+            <div class="result">
+                Result: {{ result }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="floating-leaves">
+        {% for i in range(10) %}
+        <div class="leaf"></div>
+        {% endfor %}
+    </div>
+</body>
+</html> 
